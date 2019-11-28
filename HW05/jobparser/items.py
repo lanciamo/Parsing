@@ -10,5 +10,11 @@ import scrapy
 
 class JobparserItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    _id = scrapy.Field()
+    site = scrapy.Field()
+    name = scrapy.Field()
+    link = scrapy.Field()
+    salary = scrapy.Field()
+    min_salary = scrapy.Field()
+    max_salary = scrapy.Field()
+    source = scrapy.Field()
