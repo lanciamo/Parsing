@@ -14,7 +14,7 @@ class JobparserPipeline(object):
 
     def process_item(self, item, spider):
         print(item)
-        collection = self.mongo_base.vaca
+        collection = self.mongo_base[spider.name]
         collection.insert_one(item)
         # if spider.name == 'hhru':
         return item

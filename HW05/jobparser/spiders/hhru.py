@@ -19,6 +19,7 @@ class HhruSpider(scrapy.Spider):
     def vacancy_parse(self, response: HtmlResponse):
         vaca = response.xpath('//div[contains(@class,"vacancy-title")]//h1[@class="header"]//text()').extract()
         salary = response.css('div.vacancy-title p.vacancy-salary::text').extract()
+        salary = salary()
         try:
             sal_min = response.css('div.vacancy-title meta[itemprop="minValue"]::attr(content)').extract()
         except:

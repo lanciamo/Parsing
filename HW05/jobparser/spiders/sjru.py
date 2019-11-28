@@ -3,6 +3,7 @@ import scrapy
 from scrapy.http import HtmlResponse
 from jobparser.items import JobparserItem
 
+
 class SjruSpider(scrapy.Spider):
     name = 'sjru'
     allowed_domains = ['superjob.ru']
@@ -14,7 +15,6 @@ class SjruSpider(scrapy.Spider):
         vacancy = response.css('div._1ID8B div.f-test-vacancy-item div._3wZVt a._3dPok::attr(href)').extract()
         for link in vacancy:
             yield response.follow(link, self.vacancy_parse)
-
 
     def vacancy_parse(self, response: HtmlResponse):
         vac = response.css('div._3MVeX h1._3mfro::text').extract_first()
